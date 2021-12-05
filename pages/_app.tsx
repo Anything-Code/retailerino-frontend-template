@@ -10,13 +10,10 @@ export const graphqlClient = new ApolloClient({
     ssrMode: typeof window === 'undefined',
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
-    const client = graphqlClient;
+export default function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <ApolloProvider client={client}>
+        <ApolloProvider client={graphqlClient}>
             <Component {...pageProps} />
         </ApolloProvider>
     );
 }
-
-export default MyApp;
